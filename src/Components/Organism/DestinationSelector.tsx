@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DestinationLocation from "../Molecules/DestinationLocation";
 import { DatePicker, Select, Space } from "antd";
+import DestinationGuests from "../Molecules/DestinationGuests";
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 0 !important;
+  border: 1px solid #ccc;
 `;
 
 const DestinationSearch = styled.button`
@@ -27,17 +29,16 @@ const SelectDestination = styled(Select)`
 `;
 
 const DestinationSelector = () => {
-  function onChange(value: string) {
-    console.log(`selected ${value}`);
-  }
+  const [selectedDestination, setSelectedDestination] = useState("New York");
 
-  function onSearch(val: string) {
-    console.log("search:", val);
-  }
   return (
     <Wrapper>
-      <DestinationLocation />
+      <DestinationLocation
+        selectedDestination={selectedDestination}
+        setSelectedDestination={setSelectedDestination}
+      />
       <RangePicker />
+      <DestinationGuests />
       <DestinationSearch>Search</DestinationSearch>
     </Wrapper>
   );

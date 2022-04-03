@@ -23,12 +23,13 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   height: 75vh;
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
+  min-width: fit-content;
 `;
 const HeadingText = styled.h1`
   color: white;
-
+  text-align: center;
   margin-top: 5rem;
   font-size: 3.5rem;
   font-family: Roboto Slab;
