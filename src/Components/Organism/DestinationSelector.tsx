@@ -9,7 +9,7 @@ const { Option } = Select;
 
 const Wrapper = styled.div`
   background-color: white;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
   display: flex;
   justify-content: space-between;
   gap: 0 !important;
@@ -30,6 +30,9 @@ const SelectDestination = styled(Select)`
 
 const DestinationSelector = () => {
   const [selectedDestination, setSelectedDestination] = useState("New York");
+  const [selectedDateRange, setSelectedDateRange] = useState<string[]>();
+  const [selectedAdults, setSelectedAdults] = useState(0);
+  const [selectedChildern, setSelectedChildern] = useState(0);
 
   return (
     <Wrapper>
@@ -37,8 +40,15 @@ const DestinationSelector = () => {
         selectedDestination={selectedDestination}
         setSelectedDestination={setSelectedDestination}
       />
-      <RangePicker />
-      <DestinationGuests />
+      <RangePicker
+        onChange={(dates, datesString) => setSelectedDateRange(datesString)}
+      />
+      <DestinationGuests
+        selectedAdults={selectedAdults}
+        setSelectedAdults={setSelectedAdults}
+        selectedChildern={selectedChildern}
+        setSelectedChildern={setSelectedChildern}
+      />
       <DestinationSearch>Search</DestinationSearch>
     </Wrapper>
   );
