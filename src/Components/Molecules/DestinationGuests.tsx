@@ -133,7 +133,9 @@ const DestinationGuests: React.FC<Props> = ({
         </Icon>
         <Meta>
           <p>Guests</p>
-          <DestinationText>4 Adults - 4 Children</DestinationText>
+          <DestinationText>
+            {selectedAdults} Adults - {selectedChildern} Children
+          </DestinationText>
         </Meta>
       </Wrapper>
     </Dropdown>
