@@ -18,6 +18,7 @@ const Heading = styled.div`
   }
   > p {
     font-weight: 600;
+    color: rgb(94, 109, 119);
   }
 `;
 
