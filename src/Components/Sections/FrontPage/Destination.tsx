@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import destBg from "../../../Resources/destBg.jpg";
+import DestinationFooter from "../../Molecules/DestinationFooter";
 import DestinationSelector from "../../Organism/DestinationSelector";
 
 const BackgroudnImage = styled.div`
@@ -42,6 +43,7 @@ const Destination = () => {
       <div>
         <HeadingText>Find your next rental</HeadingText>
         <DestinationSelector />
+        <DestinationFooter />
       </div>
     </Wrapper>
   );
