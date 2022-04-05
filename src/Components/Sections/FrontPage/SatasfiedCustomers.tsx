@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   margin: 5rem auto;
   text-align: center;
-  padding-bottom: 5rem;
+  /* padding-bottom: 5rem; */
 `;
 const CardsWrapper = styled.div`
   display: flex;
