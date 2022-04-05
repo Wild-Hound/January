@@ -12,3 +12,9 @@ export interface recommendedHousehouse {
     size: number;
   };
 }
+
+export interface review {
+  img: string;
+  text: string;
+  name: string;
+}

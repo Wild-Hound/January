@@ -6,11 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
-  margin: 2rem auto;
+  margin: 5rem auto;
   max-width: fit-content;
 `;
 const Heading = styled.div`

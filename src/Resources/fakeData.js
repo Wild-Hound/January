@@ -96,3 +96,26 @@ export const recommendedHouses = [
     },
   },
 ];
+
+export const reviews = [
+  {
+    img: "https://remap.travelerwp.com/wp-content/uploads/2019/04/Emmi-100x100.png",
+    text: "Faucibus tristique felis potenti ultrices ornare rhoncus semper hac facilisi Rutrum tellus lorem sem velit nisi non pharetra in dui.",
+    name: "Eva Hicks",
+  },
+  {
+    img: "https://remap.travelerwp.com/wp-content/uploads/2019/04/Emmi-100x100.png",
+    text: "Faucibus tristique felis potenti ultrices ornare rhoncus semper hac facilisi Rutrum tellus lorem sem velit nisi non pharetra in dui.",
+    name: "Eva Hicks",
+  },
+  {
+    img: "https://remap.travelerwp.com/wp-content/uploads/2019/04/Emmi-100x100.png",
+    text: "Faucibus tristique felis potenti ultrices ornare rhoncus semper hac facilisi Rutrum tellus lorem sem velit nisi non pharetra in dui.",
+    name: "Eva Hicks",
+  },
+  {
+    img: "https://remap.travelerwp.com/wp-content/uploads/2019/04/Emmi-100x100.png",
+    text: "Faucibus tristique felis potenti ultrices ornare rhoncus semper hac facilisi Rutrum tellus lorem sem velit nisi non pharetra in dui.",
+    name: "Eva Hicks",
+  },
+];
