@@ -63,7 +63,7 @@ export const recommendedHouses = [
     name: "Best of west village",
     location: "New York City, NY, USA",
     rating: 5,
-    reviewsNumber: 1,
+    reviewsNumber: 5,
     meta: {
       people: 6,
       bed: 1,

@@ -1,7 +1,21 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { globalState, recommendedHousehouse } from "../Lib/Types";
+import Subscribe from "../Components/Sections/FrontPage/Subscribe";
+import RecommendedHouses from "../Components/Sections/FrontPage/RecommendedHouses";
+import MainContent from "../Components/Sections/RentalPage/MainContent";
+
+const RentalInfoWrapper = styled.div`
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+`;
+
+const SideNavbar = styled.div``;
 
 const Rental = () => {
   const [rentalData, setRentalData] = useState<recommendedHousehouse>();
@@ -32,7 +46,19 @@ const Rental = () => {
     console.log("rentaldata", rentalData);
   }, [rentalData]);
 
-  return <div>Rental</div>;
+  return (
+    <div>
+      <RentalInfoWrapper>
+        <MainContent rentalData={rentalData} />
+        <SideNavbar />
+      </RentalInfoWrapper>
+      <RecommendedHouses
+        housesData={housesAvailableForRental}
+        title="You may also like"
+      />
+      <Subscribe />
+    </div>
+  );
 };
 
 export default Rental;

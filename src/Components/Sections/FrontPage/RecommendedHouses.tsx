@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { recommendedHouses } from "../../../Resources/fakeData";
 import RecommendedHouseCard from "../../Molecules/RecommendedHouseCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -41,31 +40,21 @@ const RecommendedHousesWrapper = styled(Swiper)`
   }
 `;
 
-const RecommendedHouses = () => {
-  const [housesData, setHousesData] = useState<recommendedHousehouse[]>();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!recommendedHouses) {
-      return;
-    }
-    setHousesData(recommendedHouses);
-  }, [recommendedHouses]);
-
-  useEffect(() => {
-    if (!housesData) {
-      return;
-    }
-
-    dispatch(updateHousesAvailableForRental(housesData));
-  }, [housesData]);
-
+interface Props {
+  housesData: recommendedHousehouse[] | undefined;
+  title: string;
+  subTitle?: string;
+}
+const RecommendedHouses: React.FC<Props> = ({
+  housesData,
+  title,
+  subTitle,
+}) => {
   return (
     <Wrapper>
       <Heading>
-        <h1>Recommended Homes</h1>
-        <p>Homes highly rated for thoughtful design</p>
+        <h1>{title}</h1>
+        <p>{subTitle}</p>
       </Heading>
       <RecommendedHousesWrapper
         slidesPerView={3}
@@ -78,7 +67,7 @@ const RecommendedHouses = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {recommendedHouses.map((house, index) => {
+        {housesData?.map((house, index) => {
           return (
             <SwiperSlide key={index}>
               <RecommendedHouseCard data={house} />
