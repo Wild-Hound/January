@@ -3,10 +3,23 @@ import ReactDOM from "react-dom";
 import "./index.less";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { Provider } from "react-redux";
+import { createStore, combineReducers } from "redux";
+import { housesAvailableForRental } from "./Lib/Redux/Reducer";
+
+const store = createStore(
+  combineReducers({
+    housesAvailableForRental,
+  }),
+  composeWithDevTools()
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

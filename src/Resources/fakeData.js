@@ -12,6 +12,7 @@ export const destinations = [
 
 export const recommendedHouses = [
   {
+    id: 1,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/2018-08-21-16-38-31-029636-322W20thSt_Kitchen1_23-scaled.jpg",
     cost: 235,
     name: "Best of west village",
@@ -26,6 +27,7 @@ export const recommendedHouses = [
     },
   },
   {
+    id: 2,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/2017-05-23-21-41-55-187424-BEK865-14-scaled-1200x900.jpg",
     cost: 235,
     name: "Spacious 3 Bedrooms",
@@ -40,6 +42,7 @@ export const recommendedHouses = [
     },
   },
   {
+    id: 3,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/KBY219-TAKE-01-4-scaled.jpg",
     cost: 235,
     name: "Manhattan Oversized",
@@ -54,6 +57,7 @@ export const recommendedHouses = [
     },
   },
   {
+    id: 4,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/2018-08-21-16-38-31-029636-322W20thSt_Kitchen1_23-scaled.jpg",
     cost: 235,
     name: "Best of west village",
@@ -68,6 +72,7 @@ export const recommendedHouses = [
     },
   },
   {
+    id: 5,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/2017-05-23-21-41-55-187424-BEK865-14-scaled-1200x900.jpg",
     cost: 235,
     name: "Spacious 3 Bedrooms",
@@ -82,6 +87,7 @@ export const recommendedHouses = [
     },
   },
   {
+    id: 6,
     img: "https://remap.travelerwp.com/wp-content/uploads/2015/01/KBY219-TAKE-01-4-scaled.jpg",
     cost: 235,
     name: "Manhattan Oversized",

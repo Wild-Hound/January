@@ -5,12 +5,14 @@ import { BiBed } from "react-icons/bi";
 import { MdOutlineBathroom } from "react-icons/md";
 import { GiDogHouse } from "react-icons/gi";
 import { recommendedHousehouse } from "../../Lib/Types";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   margin-bottom: 2.5rem;
   max-width: fit-content;
+  cursor: pointer;
 `;
 const HouseCard = styled.img`
   width: 375px;
@@ -63,8 +65,15 @@ interface Props {
   data: recommendedHousehouse;
 }
 const RecommendedHouseCard: React.FC<Props> = ({ data }) => {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    console.log(data);
+    navigate(`/rental/${data.id}`);
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleClick}>
       <HouseCard src={data.img} />
       <HouseMeta>
         <h2>{data.name}</h2>

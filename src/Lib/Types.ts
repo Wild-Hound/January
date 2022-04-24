@@ -1,4 +1,9 @@
+export interface globalState {
+  housesAvailableForRental: recommendedHousehouse[];
+}
+
 export interface recommendedHousehouse {
+  id: number;
   img: string;
   cost: number;
   name: string;

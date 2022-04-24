@@ -21,6 +21,13 @@ const CardsWrapper = styled.div`
 const RecommendedHousesWrapper = styled(Swiper)`
   max-width: 1160px;
   margin: 2rem 0;
+  .swiper-pagination-bullet,
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: black;
+    height: 5px;
+    width: 25px;
+    border-radius: 8px;
+  }
 `;
 
 const Heading = styled.h1``;
