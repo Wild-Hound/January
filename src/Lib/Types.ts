@@ -16,6 +16,7 @@ export interface recommendedHousehouse {
     bathroom: number;
     size: number;
   };
+  description: string;
 }
 
 export interface review {

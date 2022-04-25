@@ -1,35 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 import { recommendedHousehouse } from "../../../Lib/Types";
+import RentalDescription from "../../Molecules/RentalDescription";
+import RentalMwta from "../../Molecules/RentalMeta";
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
+import { Calendar, DayValue } from "react-modern-calendar-datepicker";
 
 const Wrapper = styled.div`
   width: 75%;
 `;
 
-const Meta = styled.div`
-  > div {
-    &:first-child {
-      display: flex;
-      justify-content: space-between;
-    }
+const CalendarWrapper = styled.div`
+  .Calendar.-noFocusOutline.-ltr {
+    width: 80%;
+    margin: auto;
+    margin-top: 2.5rem;
   }
-`;
-const Title = styled.h1``;
-const Rating = styled.div`
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-  > div {
-    color: #f1c40f;
-    font-size: 1.15rem;
-    display: flex;
-    gap: 0.25rem;
-    align-items: center;
-  }
-  > span {
-    color: #27ae60;
-    text-align: end;
+  .Calendar__day.-ltr {
+    border-radius: 5px !important;
   }
 `;
 
@@ -37,28 +25,32 @@ interface Props {
   rentalData: recommendedHousehouse | undefined;
 }
 const MainContent: React.FC<Props> = ({ rentalData }) => {
-  const reviewNumbers =
-    rentalData?.reviewsNumber ?? 0 > 1
-      ? `from ${rentalData?.reviewsNumber ?? 0} review`
-      : `from ${rentalData?.reviewsNumber} reviews`;
+  const [selectedDay, setSelectedDay] = useState<any>({
+    from: null,
+    to: null,
+  });
 
   return (
     <Wrapper>
-      <Meta>
-        <div>
-          <Title>{rentalData?.name}</Title>
-          <Rating>
-            <div>
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
-              <BsStarFill />
-            </div>
-            <span>{reviewNumbers}</span>
-          </Rating>
-        </div>
-      </Meta>
+      <RentalMwta rentalData={rentalData} />
+      <RentalDescription rentalData={rentalData} />
+      <CalendarWrapper>
+        <Calendar
+          value={selectedDay}
+          onChange={(e) => {
+            setSelectedDay(e);
+          }}
+          renderFooter={() => (
+            <button
+              onClick={() => {
+                console.log("clicked");
+              }}
+            >
+              Hello World
+            </button>
+          )}
+        />
+      </CalendarWrapper>
     </Wrapper>
   );
 };
