@@ -6,11 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import { housesAvailableForRental } from "./Lib/Redux/Reducer";
+import { housesAvailableForRental, cart } from "./Lib/Redux/Reducer";
 
 const store = createStore(
   combineReducers({
     housesAvailableForRental,
+    cart,
   }),
   composeWithDevTools()
 );

@@ -1,3 +1,5 @@
+import { DayRange } from "react-modern-calendar-datepicker";
+
 export interface globalState {
   housesAvailableForRental: recommendedHousehouse[];
 }
@@ -23,4 +25,11 @@ export interface review {
   img: string;
   text: string;
   name: string;
+}
+
+export interface cartType {
+  houseData: recommendedHousehouse;
+  date: DayRange;
+  selectedAdults: number;
+  selectedChildern: number;
 }

@@ -6,6 +6,7 @@ import { globalState, recommendedHousehouse } from "../Lib/Types";
 import Subscribe from "../Components/Sections/FrontPage/Subscribe";
 import RecommendedHouses from "../Components/Sections/FrontPage/RecommendedHouses";
 import MainContent from "../Components/Sections/RentalPage/MainContent";
+import RentalBooking from "../Components/Organism/RentalBooking";
 
 const RentalInfoWrapper = styled.div`
   max-width: 1200px;
@@ -13,6 +14,8 @@ const RentalInfoWrapper = styled.div`
   padding: 2rem 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  gap: 2rem;
 `;
 
 const SideNavbar = styled.div``;
@@ -50,7 +53,9 @@ const Rental = () => {
     <div>
       <RentalInfoWrapper>
         <MainContent rentalData={rentalData} />
-        <SideNavbar />
+        <SideNavbar>
+          <RentalBooking rentalData={rentalData} />
+        </SideNavbar>
       </RentalInfoWrapper>
       <RecommendedHouses
         housesData={housesAvailableForRental}
