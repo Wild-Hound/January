@@ -6,7 +6,8 @@ import { globalState, recommendedHousehouse } from "../Lib/Types";
 import Subscribe from "../Components/Sections/FrontPage/Subscribe";
 import RecommendedHouses from "../Components/Sections/FrontPage/RecommendedHouses";
 import MainContent from "../Components/Sections/RentalPage/MainContent";
-import RentalBooking from "../Components/Organism/RentalBooking";
+import Booking from "../Components/Sections/RentalPage/Booking";
+import OwnerInfo from "../Components/Molecules/OwnerInfo";
 
 const RentalInfoWrapper = styled.div`
   max-width: 1200px;
@@ -54,7 +55,7 @@ const Rental = () => {
       <RentalInfoWrapper>
         <MainContent rentalData={rentalData} />
         <SideNavbar>
-          <RentalBooking rentalData={rentalData} />
+          <Booking />
         </SideNavbar>
       </RentalInfoWrapper>
       <RecommendedHouses
