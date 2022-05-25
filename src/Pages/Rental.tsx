@@ -55,7 +55,7 @@ const Rental = () => {
       <RentalInfoWrapper>
         <MainContent rentalData={rentalData} />
         <SideNavbar>
-          <Booking />
+          <Booking houseData={rentalData} />
         </SideNavbar>
       </RentalInfoWrapper>
       <RecommendedHouses

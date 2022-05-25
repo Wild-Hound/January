@@ -5,6 +5,11 @@ import "react-calendar/dist/Calendar.css";
 import { getYear, getMonth, getDate, getDay } from "date-fns";
 import DestinationGuests from "../../Molecules/DestinationGuests";
 import OwnerInfo from "../../Molecules/OwnerInfo";
+import { recommendedHousehouse } from "../../../Lib/Types";
+import { useDispatch } from "react-redux";
+import { updateCart } from "../../../Lib/Redux/Actions";
+import { notification } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ParentWrapper = styled.div`
   position: sticky;
@@ -44,11 +49,17 @@ const BookButton = styled.button`
   }
 `;
 
-const Booking = () => {
+interface Props {
+  houseData: recommendedHousehouse | undefined;
+}
+const Booking: React.FC<Props> = ({ houseData }) => {
   const [value, onChange] = useState<Date[]>();
   const [formattedDate, setFormattedDate] = useState<string[]>();
   const [selectedAdults, setSelectedAdults] = useState(0);
   const [selectedChildern, setSelectedChildern] = useState(0);
+
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
 
   useEffect(() => {
     const tempArr: string[] = [];
@@ -62,9 +73,34 @@ const Booking = () => {
     setFormattedDate([...tempArr]);
   }, [value]);
 
-  useEffect(() => {
-    console.log(formattedDate);
-  }, [formattedDate]);
+  function bookAction() {
+    if (!houseData) {
+      return;
+    }
+
+    if (!formattedDate) {
+      notification["info"]({
+        message: "Please select a date",
+      });
+      return;
+    }
+    if (!selectedAdults) {
+      notification["info"]({
+        message: "Please select atleast one person",
+      });
+      return;
+    }
+
+    const temp = {
+      houseData: houseData,
+      date: formattedDate,
+      selectedAdults: selectedAdults,
+      selectedChildern: selectedChildern,
+    };
+
+    dispatch(updateCart({ ...temp }));
+    navigator("/checkout");
+  }
 
   return (
     <ParentWrapper>
@@ -85,7 +121,7 @@ const Booking = () => {
             setSelectedChildern={setSelectedChildern}
           />
         </GuestSelectorWrapper>
-        <BookButton>Book</BookButton>
+        <BookButton onClick={bookAction}>Book</BookButton>
       </Wrapper>
       <OwnerInfo />
     </ParentWrapper>

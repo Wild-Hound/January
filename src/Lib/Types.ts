@@ -29,7 +29,7 @@ export interface review {
 
 export interface cartType {
   houseData: recommendedHousehouse;
-  // date: DayRange;
+  date: string[];
   selectedAdults: number;
   selectedChildern: number;
 }
