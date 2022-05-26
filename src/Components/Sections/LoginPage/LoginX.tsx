@@ -1,7 +1,10 @@
 import { Button, Input } from "@nextui-org/react";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { MdLogin } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { updateIsAuth } from "../../../Lib/Redux/Actions";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
   min-width: 350px;
@@ -26,6 +29,14 @@ const FooterWrapper = styled.div`
 `;
 
 const LoginX = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
+
   return (
     <Wrapper>
       <InputWrapper>
@@ -40,7 +51,16 @@ const LoginX = () => {
         />
       </InputWrapper>
       <ButtonWrapper>
-        <Button shadow color="gradient" icon={<MdLogin />} auto>
+        <Button
+          shadow
+          color="gradient"
+          icon={<MdLogin />}
+          auto
+          onClick={() => {
+            dispatch(updateIsAuth(true));
+            navigate(-1);
+          }}
+        >
           Login
         </Button>
       </ButtonWrapper>
